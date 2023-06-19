@@ -2,13 +2,15 @@
 
 Run your Ruby file by typing `ruby ` and then the name of the file you want to run in the Terminal.
 
-If we want to run `main.rb`, we can write the command:
+If we want to run `accumulate.rb`, you can write the command:
 
 ```bash
-ruby main.rb
+ruby accumulate.rb
 ```
 
-To re-run this command, you can use the UP and DOWN arrow keys to look at the history of all commands you've run in a particular Terminal.
+To re-run this command, you can use the <kbd>Up</kbd> and <kbd>Down</kbd> arrow keys to look at the history of all commands you've run in a particular Terminal.
+
+Use tab completion! If you don't want to type out `accumulate.rb` (or any other file name), just begin typing it (e.g. `acc`) and then press <kbd>Tab</kbd> on your keyboard to finish the line. 
 
 ## Required exercises
 
