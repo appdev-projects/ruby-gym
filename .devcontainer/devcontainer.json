@@ -3,7 +3,7 @@
 {
   "name": "Container",
   // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-  "image": "bpurinton/ruby-gym-codespace-march2023",
+  "image": "jelaniwoods/appdev2023-rails-template",
 
   // Features to add to the dev container. More info: https://containers.dev/features.
   // "features": {},
@@ -13,8 +13,7 @@
 
   "portsAttributes": {
     "3000": {
-      "label": "Application",
-      "onAutoForward": "openPreview"
+      "label": "Application"
     }
   },
 
@@ -26,7 +25,8 @@
     "vscode": {
       "extensions": ["vortizhe.simple-ruby-erb",
                      "mbessey.vscode-rufo",
-                     "aliariff.vscode-erb-beautify"]
+                     "aliariff.vscode-erb-beautify",
+                     "eamodio.gitlens"]
     }
   }
 

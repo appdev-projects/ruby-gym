@@ -1,11 +1,12 @@
 source 'https://rubygems.org'
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.3'
+ruby '3.2.1'
 
-gem "ruby_grade_runner", :git => "https://github.com/firstdraft/ruby_grade_runner.git"
-gem "web_git", :git => "https://github.com/firstdraft/web_git.git", :branch => "spring2020"
+gem "grade_runner"
 gem "rake"
 
 group :test do
   gem 'rspec'
+  gem 'i18n'
 end
