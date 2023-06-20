@@ -64,11 +64,9 @@ describe "count_the.rb" do
     count_the = $".select{|r| r.include? 'count_the.rb'}
     $".delete(count_the.first)
 
-    allow_any_instance_of(Object).to receive(:gets).and_return("the cabbage, the bagel, the apple, the drink, the bread\n")
+    allow_any_instance_of(Array).to receive(:sample).and_return("the cabbage, the bagel, the apple, the drink, the bread")
 
-    # expect { require_relative '../../count_the' }.to output(/.?the.? appeared 5 times/i).to_stdout
     output = with_captured_stdout { require_relative('../../count_the')}
-    output = output.gsub(/.?Enter a sentence:.?/, "").strip
     output = "empty" if output.empty?
 
     expect(output.match?(/.?the.? appeared 5 times/i)).to be(true), "Expected output to be 'the appeared 5 times', but was #{output}."
@@ -81,11 +79,9 @@ describe "count_the.rb" do
     count_the = $".select{|r| r.include? 'count_the.rb'}
     $".delete(count_the.first)
 
-    allow_any_instance_of(Object).to receive(:gets).and_return("the, beginnning the end and the middle\n")
+    allow_any_instance_of(Array).to receive(:sample).and_return("the, beginnning the end and the middle")
 
-    # expect { require_relative '../../count_the' }.to output(/.?the.? appeared 3 times/i).to_stdout
     output = with_captured_stdout { require_relative('../../count_the')}
-    output = output.gsub(/.?Enter a sentence:.?/, "").strip
     output = "empty" if output.empty?
 
     expect(output.match?(/.?the.? appeared 3 times/i)).to be(true), "Expected output to be 'the appeared 3 times', but was #{output}."
@@ -98,11 +94,9 @@ describe "count_the.rb" do
     count_the = $".select{|r| r.include? 'count_the.rb'}
     $".delete(count_the.first)
 
-    allow_any_instance_of(Object).to receive(:gets).and_return("the- then, the\n")
+    allow_any_instance_of(Array).to receive(:sample).and_return("the- then, the")
 
-    # expect { require_relative '../../count_the' }.to output(/.?the.? appeared 2 times/i).to_stdout
     output = with_captured_stdout { require_relative('../../count_the')}
-    output = output.gsub(/.?Enter a sentence:.?/, "").strip
     output = "empty" if output.empty?
 
     expect(output.match?(/.?the.? appeared 2 times/i)).to be(true), "Expected output to be 'the appeared 2 times', but was #{output}."

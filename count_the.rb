@@ -9,13 +9,25 @@
 #
 # Hint: It may be helpful to use the advanced gsub techniques with the Regexp class; see the Ruby reference: 
 #   https://learn.firstdraft.com/lessons/33#advanced-gsub-techniques
+#
+# Make sure each of these sentences outputs the correct number of 'the's
 
-# try me 
-sentence = "the dog, the cat, the zebra, the giraffe" # x = 4
+sentence = [
+  "the dog, the cat, the zebra, the giraffe", # x = 4
+  "the, the code, and the developer", # x = 3
+  "then the- their" # x = 1
+].sample
 
-# then make sure these work as well!
-# sentence = "the, the code, and the developer" # x = 3
-# sentence = "then the- their" # x = 1
+pp sentence
 
 # write your code below
+sentence = sentence.split
+count = 0
+sentence.each do |word|
+  is_it_the = word.gsub(/[^a-z]/i, "")
+  if is_it_the == 'the'
+    count = count + 1
+  end
+end
 
+pp "'the' appeared #{count} times"
