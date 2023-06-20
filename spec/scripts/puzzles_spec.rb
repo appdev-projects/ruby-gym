@@ -105,27 +105,28 @@ end
 
 describe "secret_encoder.rb" do
   it "should print '3 n22d t4 b2 m4r2 s2cr2t', when the input is 'I need to be more secret'", points: 2 do
-    allow_any_instance_of(Object).to receive(:gets).and_return("I need to be more secret\n")
-    # expect { require_relative '../../secret_encoder.rb' }.to output(/3 n22d t4 b2 m4r2 s2cr2t/).to_stdout
-    output = with_captured_stdout { require_relative('../../secret_encoder')} 
-    output = output.gsub(/.?Enter in the secret you want to encode?.?/, "").strip
-    output = "empty" if output.empty? 
+    # Un-require secret_encoder.rb
+    secret_encoder = $".select{|r| r.include? 'secret_encoder.rb'}
+    $".delete(secret_encoder.first)
 
-    expect(output.match?(/3 n22d t4 b2 m4r2 s2cr2t/)).to be(true), "Expected output to be '3 n22d t4 b2 m4r2 s2cr2t', but was #{output}."
+    allow_any_instance_of(Array).to receive(:sample).and_return("I need to be more secret")
+
+    output = with_captured_stdout { require_relative('../../secret_encoder')}
+    output = "empty" if output.empty?
+
+    expect(output.match?(/3 n22d t4 b2 m4r2 s2cr2t/i)).to be(true), "Expected output to be '3 n22d t4 b2 m4r2 s2cr2t', but was #{output}."
   end
 end
 
 describe "secret_encoder.rb" do
   it "should print 'D4n't t2ll 1ny4n2 45r c4d2' when the input is 'Don't tell anyone our code'", points: 3 do
-
-  # Un-require secret_encoder.rb
+    # Un-require secret_encoder.rb
     secret_encoder = $".select{|r| r.include? 'secret_encoder.rb'}
     $".delete(secret_encoder.first)
 
-    allow_any_instance_of(Object).to receive(:gets).and_return("Don't tell anyone our code\n")
-    # expect { require_relative '../../secret_encoder.rb' }.to output(/D4n't t2ll 1ny4n2 45r c4d2/).to_stdout
-    output = with_captured_stdout { require_relative('../../secret_encoder')} 
-    output = output.gsub(/.?Enter in the secret you want to encode?.?/, "").strip
+    allow_any_instance_of(Array).to receive(:sample).and_return("Don't tell anyone our code")
+
+    output = with_captured_stdout { require_relative('../../secret_encoder')}
     output = "empty" if output.empty? 
 
     expect(output.match?(/D4n't t2ll 1ny4n2 45r c4d2/)).to be(true), "Expected output to be 'D4n't t2ll 1ny4n2 45r c4d2', but was #{output}."
@@ -134,10 +135,13 @@ end
 
 describe "secret_decoder.rb" do
   it "prints 'You and i need to be more secret', when the input is 'Y45 1nd 3 n22d t4 b2 m4r2 s2cr2t'", points: 2 do
-    allow_any_instance_of(Object).to receive(:gets).and_return("Y45 1nd 3 n22d t4 b2 m4r2 s2cr2t\n")
-    # expect { require_relative '../../secret_decoder.rb' }.to output(/You and i need to be more secret/).to_stdout
-    output = with_captured_stdout { require_relative('../../secret_decoder')} 
-    output = output.gsub(/.?Enter in the secret you want to decode?.?/, "").strip
+    # Un-require secret_decoder.rb
+    secret_decoder = $".select{|r| r.include? 'secret_decoder.rb'}
+    $".delete(secret_decoder.first)
+
+    allow_any_instance_of(Array).to receive(:sample).and_return("Y45 1nd 3 n22d t4 b2 m4r2 s2cr2t")
+
+    output = with_captured_stdout { require_relative('../../secret_decoder')}
     output = "empty" if output.empty? 
 
     expect(output.match?(/You and i need to be more secret/)).to be(true), "Expected output to be 'You and i need to be more secret', but was #{output}."
@@ -146,15 +150,13 @@ end
 
 describe "secret_decoder.rb" do
   it "prints 'Don't tell anyone our code', when the input is 'D4n't t2ll 1ny4n2 45r c4d2'", points: 3 do
-
-  # Un-require secret_decoder.rb
+    # Un-require secret_decoder.rb
     secret_decoder = $".select{|r| r.include? 'secret_decoder.rb'}
     $".delete(secret_decoder.first)
 
-    allow_any_instance_of(Object).to receive(:gets).and_return("D4n't t2ll 1ny4n2 45r c4d2\n")
-    # expect { require_relative '../../secret_decoder.rb' }.to output(/Don't tell anyone our code/).to_stdout
-    output = with_captured_stdout { require_relative('../../secret_decoder')} 
-    output = output.gsub(/.?Enter in the secret you want to decode?.?/, "").strip
+    allow_any_instance_of(Array).to receive(:sample).and_return("D4n't t2ll 1ny4n2 45r c4d2")
+
+    output = with_captured_stdout { require_relative('../../secret_decoder')}
     output = "empty" if output.empty? 
 
     expect(output.match?(/Don't tell anyone our code/)).to be(true), "Expected output to be 'Don't tell anyone our code', but was #{output}."
