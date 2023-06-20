@@ -23,7 +23,7 @@ describe "black_jack.rb" do
 
     output = with_captured_stdout { require_relative('../../black_jack')}
     output = "empty" if output.empty?
-    puts output
+
     expect(output.match?(/14/i)).to be(true), "Expected output to be '14', but was #{output}."
   end
 end
@@ -36,7 +36,6 @@ describe "black_jack.rb" do
 
     allow_any_instance_of(Kernel).to receive(:rand).and_return(13, 13)
 
-    # expect { require_relative '../../black_jack' }.to output(/0/i).to_stdout
     output = with_captured_stdout { require_relative('../../black_jack')}
     output = "empty" if output.empty?
 
@@ -52,7 +51,6 @@ describe "black_jack.rb" do
 
     allow_any_instance_of(Kernel).to receive(:rand).and_return(11, 11)
 
-    # expect { require_relative '../../black_jack' }.to output(/12/i).to_stdout
     output = with_captured_stdout { require_relative('../../black_jack')}
     output = "empty" if output.empty?
 
