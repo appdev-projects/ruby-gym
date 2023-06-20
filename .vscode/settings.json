@@ -29,7 +29,8 @@
     "Gemfile": true,
     "Gemfile.lock": true,
     "bin": true,
-    "spec": true
+    "spec": true,
+    "tmp": true
   },
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
