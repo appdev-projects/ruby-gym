@@ -1,5 +1,5 @@
 describe "black_jack.rb" do
-  it "prints \"20\" when the user enters '10 10'", points: 2 do
+  it "prints \"20\" when the numbers are '[10, 10]'", points: 2 do
     # Un-require black_jack.rb
     black_jack = $".select{|r| r.include? 'black_jack.rb'}
     $".delete(black_jack.first)
@@ -14,7 +14,7 @@ describe "black_jack.rb" do
 end
 
 describe "black_jack.rb" do
-  it "prints \"14\" when the user enters '13 11'", points: 2 do
+  it "prints \"14\" when the numbers are '[13, 11]'", points: 2 do
     # Un-require black_jack.rb
     black_jack = $".select{|r| r.include? 'black_jack.rb'}
     $".delete(black_jack.first)
@@ -29,7 +29,7 @@ describe "black_jack.rb" do
 end
 
 describe "black_jack.rb" do
-  it "prints \"0\" when the user enters '13 13'", points: 2 do
+  it "prints \"0\" when the numbers are '[13, 13]'", points: 2 do
     # Un-require black_jack.rb
     black_jack = $".select{|r| r.include? 'black_jack.rb'}
     $".delete(black_jack.first)
@@ -44,7 +44,7 @@ describe "black_jack.rb" do
 end
 
 describe "black_jack.rb" do
-  it "prints \"12\" when the user enters '11 11'", points: 2 do
+  it "prints \"12\" when the numbers are '[11, 11]'", points: 2 do
     # Un-require black_jack.rb
     black_jack = $".select{|r| r.include? 'black_jack.rb'}
     $".delete(black_jack.first)
