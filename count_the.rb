@@ -21,13 +21,3 @@ sentence = [
 pp sentence
 
 # write your code below
-sentence = sentence.split
-count = 0
-sentence.each do |word|
-  is_it_the = word.gsub(/[^a-z]/i, "")
-  if is_it_the == 'the'
-    count = count + 1
-  end
-end
-
-pp "'the' appeared #{count} times"
