@@ -4,11 +4,9 @@ describe "black_jack.rb" do
     black_jack = $".select{|r| r.include? 'black_jack.rb'}
     $".delete(black_jack.first)
 
-    allow_any_instance_of(Object).to receive(:gets).and_return("10 10\n")
+    allow_any_instance_of(Kernel).to receive(:rand).and_return(10, 10)
 
-    # expect { require_relative '../../black_jack' }.to output(/20/i).to_stdout
     output = with_captured_stdout { require_relative('../../black_jack')}
-    output = output.gsub(/.?Enter two number separated by spaces:.?/, "").strip
     output = "empty" if output.empty?
 
     expect(output.match?(/20/i)).to be(true), "Expected output to be '20', but was #{output}."
@@ -21,13 +19,11 @@ describe "black_jack.rb" do
     black_jack = $".select{|r| r.include? 'black_jack.rb'}
     $".delete(black_jack.first)
 
-    allow_any_instance_of(Object).to receive(:gets).and_return("13 11\n")
+    allow_any_instance_of(Kernel).to receive(:rand).and_return(13, 11)
 
-    # expect { require_relative '../../black_jack' }.to output(/14/i).to_stdout
     output = with_captured_stdout { require_relative('../../black_jack')}
-    output = output.gsub(/.?Enter two number separated by spaces:.?/, "").strip
     output = "empty" if output.empty?
-
+    puts output
     expect(output.match?(/14/i)).to be(true), "Expected output to be '14', but was #{output}."
   end
 end
@@ -38,11 +34,10 @@ describe "black_jack.rb" do
     black_jack = $".select{|r| r.include? 'black_jack.rb'}
     $".delete(black_jack.first)
 
-    allow_any_instance_of(Object).to receive(:gets).and_return("13 13\n")
+    allow_any_instance_of(Kernel).to receive(:rand).and_return(13, 13)
 
     # expect { require_relative '../../black_jack' }.to output(/0/i).to_stdout
     output = with_captured_stdout { require_relative('../../black_jack')}
-    output = output.gsub(/.?Enter two number separated by spaces:.?/, "").strip
     output = "empty" if output.empty?
 
     expect(output.match?(/0/i)).to be(true), "Expected output to be '0', but was #{output}."
@@ -55,11 +50,10 @@ describe "black_jack.rb" do
     black_jack = $".select{|r| r.include? 'black_jack.rb'}
     $".delete(black_jack.first)
 
-    allow_any_instance_of(Object).to receive(:gets).and_return("11 11\n")
+    allow_any_instance_of(Kernel).to receive(:rand).and_return(11, 11)
 
     # expect { require_relative '../../black_jack' }.to output(/12/i).to_stdout
     output = with_captured_stdout { require_relative('../../black_jack')}
-    output = output.gsub(/.?Enter two number separated by spaces:.?/, "").strip
     output = "empty" if output.empty?
 
     expect(output.match?(/12/i)).to be(true), "Expected output to be '12', but was #{output}."
